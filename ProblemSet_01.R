@@ -6,7 +6,6 @@
 # clearing workspace and set wd
 rm(list=ls())
 cat("\014")
-setwd("C:/Users/fabia/Google Drive/UniBonn/X_Computational_Statistics/Machine_Learning_R")
 #library(plm)
 
 #####################################################################
@@ -35,8 +34,8 @@ y_test=beta1*x_1+beta2*x_2_test+res_test
 #c)
 model=lm(y_train ~ x_2_train)
 summary(model)
-beta1_train=unname(model$coefficients[1])
-beta2_train=unname(model$coefficients[2])
+beta1_hat=unname(model$coefficients[1])
+beta2_hat=unname(model$coefficients[2])
 
 
 
@@ -44,7 +43,7 @@ beta2_train=unname(model$coefficients[2])
 yfit_train=predict(model)
 MSE=1/N*sum((y_train-yfit_train)^2)
 
-yfit_test=beta1_train+beta2_train*x_2_test
+yfit_test=beta1_hat+beta2_hat*x_2_test
 AVE=1/N*sum((y_test-yfit_test)^2)     # Ave=MSE but only for compairing training and test sample
 
 
@@ -73,7 +72,7 @@ MSE.poly
 #calculating predited values for test sample
 yfit_test.poly=matrix(NaN,N,5)
 for (i in 1:5){
-  yfit_test.poly[,i]=OLS.poly[1,i]*x_1+OLS.poly[2,i]*x_2+OLS.poly[3,i]*(x_2_test^2)+
+  yfit_test.poly[,i]=OLS.poly[1,i]*x_1+OLS.poly[2,i]*x_2_test+OLS.poly[3,i]*(x_2_test^2)+
     OLS.poly[4,i]*(x_2_test^3)+OLS.poly[5,i]*(x_2_test^4)
 }
 
@@ -84,6 +83,14 @@ for (i in 1:5){
   AVE.poly[i]=(1/N)*sum((y_test-yfit_test.poly[,i])^2)
 }
 AVE.poly
+
+par(mfrow=c(1,2))
+plot(MSE.poly, type='l', col="red")
+plot(AVE.poly, type='l', col="red")
+
+### Note: Our average prediction error (AVE) increases after adding the
+#         thrid polynominal (x^3) - Reason: the true DGP is 
+#         y = c + b*x + res
 
 #####################################################################
 ###   Exercise 2
@@ -102,37 +109,37 @@ x_1= c(rep(1,N))      # is a constant
 
 # a) and b)
 MCN=1000
-i=0
 MSE_Ex2=matrix(NaN,MCN,1)
 AVE_Ex2=matrix(NaN,MCN,1)
 set.seed(100)
 
-### Note: For efficieny it is better to generate training and test sample once
-#         before the MC-Simulation is started (same holds for regressions).
+### Note: For efficieny it is better to generatetest sample once
+#         before the MC-Simulation is started.
 #         Reason: training and test sample are drawn from a random distribution
-
-# training Data
-x_2_train=rnorm(N,mu_x,sig_x^0.5)
-res_train=rnorm(N,0,sig_u^0.5)
-y_train=beta1*x_1+beta2*x_2_train+res_train
 
 # test Data
 x_2_test=rnorm(N,mu_x,sig_x^0.5)
 res_test=rnorm(N,0,sig_u^0.5)
 y_test=beta1*x_1+beta2*x_2_test+res_test
 
-# setting up regression model
-model=lm(y_train ~ x_2_train)
-beta1_train=unname(model$coefficients[1])
-beta2_train=unname(model$coefficients[2])
 
 for (i in 1:MCN){
+  # training Data
+  x_2_train=rnorm(N,mu_x,sig_x^0.5)
+  res_train=rnorm(N,0,sig_u^0.5)
+  y_train=beta1*x_1+beta2*x_2_train+res_train
+  
+  # setting up regression model
+  model=lm(y_train ~ x_2_train)
+  beta1_hat=unname(model$coefficients[1])
+  beta2_hat=unname(model$coefficients[2])
+  
   # calculation of MSE
   yfit_train=predict(model)
   MSE_Ex2[i]=1/N*sum((y_train-yfit_train)^2)
 
   # calculation of AVE
-  yfit_test=beta1_train+beta2_train*x_2_test
+  yfit_test=beta1_hat+beta2_hat*x_2_test
   AVE_Ex2[i]=1/N*sum((y_test-yfit_test)^2)
 }
 
