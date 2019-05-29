@@ -6,6 +6,7 @@
 # clearing workspace and set wd
 rm(list=ls())
 cat("\014")
+dev.off()
 #library(plm)
 
 #####################################################################
@@ -19,7 +20,7 @@ sig_u= 10
 beta1= 5
 beta2= -0.5
 x_1= c(rep(1,N))      # is a constant
-set.seed(123)         # to generate always the same random numbers 
+set.seed(123)         # to generate always the same random numbers
 
 #a)
 x_2_train=rnorm(N,mu_x,sig_x^0.5)
@@ -89,7 +90,7 @@ plot(MSE.poly, type='l', col="red")
 plot(AVE.poly, type='l', col="red")
 
 ### Note: Our average prediction error (AVE) increases after adding the
-#         thrid polynominal (x^3) - Reason: the true DGP is 
+#         thrid polynominal (x^3) - Reason: the true DGP is
 #         y = c + b*x + res
 
 #####################################################################
@@ -128,12 +129,12 @@ for (i in 1:MCN){
   x_2_train=rnorm(N,mu_x,sig_x^0.5)
   res_train=rnorm(N,0,sig_u^0.5)
   y_train=beta1*x_1+beta2*x_2_train+res_train
-  
+
   # setting up regression model
   model=lm(y_train ~ x_2_train)
   beta1_hat=unname(model$coefficients[1])
   beta2_hat=unname(model$coefficients[2])
-  
+
   # calculation of MSE
   yfit_train=predict(model)
   MSE_Ex2[i]=1/N*sum((y_train-yfit_train)^2)

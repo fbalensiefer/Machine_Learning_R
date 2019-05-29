@@ -6,6 +6,7 @@
 # clearing workspace and set wd
 rm(list=ls())
 cat("\014")
+dev.off()
 
 #library(plm)       # Panel Methods - regression models
 #library(mvtnorm)   # random draws from a multivariate normal distr.
@@ -47,7 +48,7 @@ summary(mod_qda)
 class_qfit  <- as.numeric(predict(mod_qda)$class)
 
 ## c)
-# Note: since classes are ordinal scale we can not use MSE, due to the fact 
+# Note: since classes are ordinal scale we can not use MSE, due to the fact
 #       that the distance between class 1 and 3 are the same as between 1 and 2
 #       furthermore it is not appropriarte to use OLS
 MTE_LDA=sum(class_lfit!=df$class)/N
