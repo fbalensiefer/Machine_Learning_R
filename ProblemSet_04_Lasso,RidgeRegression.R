@@ -1,5 +1,5 @@
 #####################################################################
-###   Group 10 - ProblemSet 04
+###   ProblemSet 04: Lasso and Ridge Regression
 #####################################################################
 
 ### Preface
@@ -22,7 +22,7 @@ N = 300
 p = 50
 mu = 0
 
-## DGP 
+## DGP
 # Variance-Covariance Matrix, beta vector
 set.seed(123)
 temp=runif(p, min = 1, max = 2)
@@ -115,13 +115,13 @@ set.seed(123)
    N = 300
    p = i
    mu = 0
-   
-   ## DGP 
+
+   ## DGP
    # Variance-Covariance Matrix, beta vector
    temp=runif(p, min = 1, max = 2)
    covmat=diag(temp)
    beta=runif(p, min = 0.1, max = 0.5)
-   
+
    # sampling data and generate y's
    # X = replicate(p , rmvnorm(n = N, mu = mu, Sigma = covmat))
    X = rmvnorm(N, mean = rep(mu, p), sigma = covmat)
@@ -130,17 +130,17 @@ set.seed(123)
    rm(temp, eps)
    cvridge <- cv.glmnet(X, Y, alpha = 0)
    cvlasso <- cv.glmnet(X, Y, alpha=1)
-   
+
    X_test = rmvnorm(N, mean = rep(mu, p), sigma = covmat)
    eps = rnorm(N, 0, 1^0.5)
    Y_test = X_test %*% beta + eps
    rm(eps)
-   
+
    opt_rlambda <- cvridge$lambda.min
    opt_llambda <- cvlasso$lambda.min
    cvrfit <- predict(cvridge, s = opt_rlambda, newx = X_test)
    cvlfit <- predict(cvlasso, s = opt_llambda, newx = X_test)
-   
+
    cvlerr[i] <- mean((Y_test-cvlfit)^2)
    cvrerr[i] <- mean((Y_test-cvrfit)^2)
  }
@@ -166,8 +166,8 @@ for (i in 2:MCN){
   N = 300
   p = 50
   mu = 0
-  
-  ## DGP 
+
+  ## DGP
   # Variance-Covariance Matrix, beta vector
   temp=runif(p, min = 1, max = 2)
   covmat=diag(temp)
@@ -175,7 +175,7 @@ for (i in 2:MCN){
   prob=i/(i^2)
   binvec=rbinom(p,1,prob)
   beta=beta*binvec
-  
+
   # sampling data and generate y's
   # X = replicate(p , rmvnorm(n = N, mu = mu, Sigma = covmat))
   X = rmvnorm(N, mean = rep(mu, p), sigma = covmat)
@@ -184,17 +184,17 @@ for (i in 2:MCN){
   rm(temp, eps)
   cvridge <- cv.glmnet(X, Y, alpha = 0)
   cvlasso <- cv.glmnet(X, Y, alpha=1)
-  
+
   X_test = rmvnorm(N, mean = rep(mu, p), sigma = covmat)
   eps = rnorm(N, 0, 1^0.5)
   Y_test = X_test %*% beta + eps
   rm(eps)
-  
+
   opt_rlambda <- cvridge$lambda.min
   opt_llambda <- cvlasso$lambda.min
   cvrfit <- predict(cvridge, s = opt_rlambda, newx = X_test)
   cvlfit <- predict(cvlasso, s = opt_llambda, newx = X_test)
-  
+
   cvlerr[i] <- mean((Y_test-cvlfit)^2)
   cvrerr[i] <- mean((Y_test-cvrfit)^2)
 }
@@ -203,5 +203,5 @@ par(mfrow=c(1,2))
 plot(cvlerr, type="l", main="Lasso Error dep. sparsity of Regressors")
 plot(cvrerr, type="l", main="Ridge Error dep. sparsity of Regressors")
 
-### Note: since we increase the sparsity of beta, our true model contains more coefficients which are truely zero. 
+### Note: since we increase the sparsity of beta, our true model contains more coefficients which are truely zero.
 #         Therefore Lasso performs better, since lasso allows estimates to be zero!

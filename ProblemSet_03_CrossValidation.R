@@ -1,5 +1,5 @@
 #####################################################################
-###   Group 10 - ProblemSet 03
+###   ProblemSet 03: Cross Validation
 #####################################################################
 
 # Clear workspace
@@ -85,12 +85,12 @@ validation_set = function(n1=n1,n2=n2,mu1=mu1,mu2=mu2,covmat1=covmat1,
   df2 = data.frame(cbind(X2,rep(2,length(X2))))
   df = merge(df1,df2, all=TRUE)
   colnames(df)=c("X1","X2","class")
-  
+
   #randomly split data in fraction c and 1-c
   sample = sample.int(n=nrow(df), size=floor(c*nrow(df)), replace=F)
   training_sample = df[sample,]
   test_sample = df[-sample,]
-  
+
   return(list(training_sample=training_sample,test_sample=test_sample))
 }
 
@@ -117,7 +117,7 @@ k_fold = function(n1=n1,n2=n2,mu1=mu1,mu2=mu2,covmat1=covmat1,
   df = merge(df1,df2,all=TRUE)
   colnames(df)=c("X1","X2","class")
   rm(X1,X2,df1,df2)
-  
+
   #randomly split data in k folds
   fold_list=list()
   naming=c(1:k)
@@ -126,7 +126,7 @@ k_fold = function(n1=n1,n2=n2,mu1=mu1,mu2=mu2,covmat1=covmat1,
     fold_list[[i]]= data.frame(df[fold,])
     names(fold_list)[[i]]=naming[i]
     df=df[-fold,]}
-  
+
   return(fold_list)
 }
 
@@ -142,18 +142,18 @@ Mean_error_test=matrix(NaN,n,2)
 for(i in 1:n){
   df=validation_set(n1,n2,mu1,mu2,covmat1,covmat2,c)$training_sample
   df_test=validation_set(n1,n2,mu1,mu2,covmat1,covmat2,c)$test_sample
-  
+
   LDA = lda(class ~ X1 + X2, data=df)
   class_lfit = as.numeric(predict(LDA)$class)
   class_lfit_test = as.numeric(predict(LDA,df_test)$class)
-  
+
   QDA = qda(class ~ X1 + X2 , data=df)
   class_qfit = as.numeric(predict(QDA)$class)
   class_qfit_test = as.numeric(predict(QDA,df_test)$class)
-  
+
   Mean_error[i,1] = (1/N)*sum(class_lfit!=df[,3])
   Mean_error[i,2] = (1/N)*sum(class_qfit!=df[,3])
-  
+
   Mean_error_test[i,1] = (1/N)*sum(class_lfit_test!=df_test[,3])
   Mean_error_test[i,2] = (1/N)*sum(class_qfit_test!=df_test[,3])
 }
@@ -182,21 +182,21 @@ for(i in 1:n){
     names(sample)=c("X1","X2","class")
     test_sample=data.frame(total_sample[l])
     names(test_sample)=c("X1","X2","class")
-    
+
     LDA = lda(class ~ X1 + X2, data=sample)
     class_lfit = as.numeric(predict(LDA)$class)
     class_lfit_test = as.numeric(predict(LDA,test_sample)$class)
-    
+
     QDA = qda(class ~ X1 + X2 , data=sample)
     class_qfit = as.numeric(predict(QDA)$class)
     class_qfit_test = as.numeric(predict(QDA,test_sample)$class)
-    
+
     num=nrow(sample)
     num1=nrow(test_sample)
-    
+
     Mean_error_lda[i,l] = (1/num)*sum(class_lfit!=sample$class)
     Mean_error_qda[i,l] = (1/num)*sum(class_qfit!=sample$class)
-    
+
     Mean_error_test_lda[i,l] = (1/num1)*sum(class_lfit_test!=test_sample$class)
     Mean_error_test_qda[i,l] = (1/num1)*sum(class_qfit_test!=test_sample$class)
   }}
