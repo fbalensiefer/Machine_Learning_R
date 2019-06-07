@@ -5,4 +5,5 @@ This repository contains exercises from a course in computational statistics, st
 
 I highly recomment you the following book:
 > *An introduction to statistical learning* 
-James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An introduction to statistical learning (Vol. 112, p. 18). New York: springer.
+
+> James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An introduction to statistical learning (Vol. 112, p. 18). New York: springer.
