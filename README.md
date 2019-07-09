@@ -17,7 +17,7 @@ Chapter 01 of the script:
   src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
       width="109" height="20">
 </a>
-<a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_01.ipynb"
+<a href="https://mybinder.org/v2/gh/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_01.ipynb"
     target="_parent">
     <img align="center"
        src="https://mybinder.org/badge_logo.svg"
@@ -32,7 +32,7 @@ Chapter 02 of the script:
   src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
       width="109" height="20">
 </a>
-<a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_02.ipynb"
+<a href="https://mybinder.org/v2/gh/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_02.ipynb"
     target="_parent">
     <img align="center"
        src="https://mybinder.org/badge_logo.svg"
@@ -47,7 +47,7 @@ Chapter 03 of the script:
   src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
       width="109" height="20">
 </a>
-<a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_03.ipynb"
+<a href="https://mybinder.org/v2/gh/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_03.ipynb"
     target="_parent">
     <img align="center"
        src="https://mybinder.org/badge_logo.svg"
@@ -62,7 +62,7 @@ Chapter 04 of the script:
   src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
       width="109" height="20">
 </a>
-<a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_04.ipynb"
+<a href="https://mybinder.org/v2/gh/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_04.ipynb"
     target="_parent">
     <img align="center"
        src="https://mybinder.org/badge_logo.svg"
@@ -77,7 +77,7 @@ Chapter 05 of the script:
   src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
       width="109" height="20">
 </a>
-<a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_05.ipynb"
+<a href="https://mybinder.org/v2/gh/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_05.ipynb"
     target="_parent">
     <img align="center"
        src="https://mybinder.org/badge_logo.svg"
@@ -92,7 +92,7 @@ Chapter 06 of the script:
   src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png"
       width="109" height="20">
 </a>
-<a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_06.ipynb"
+<a href="https://mybinder.org/v2/gh/fbalensiefer/Machine_Learning_R/master?filepath=Chapter_06.ipynb"
     target="_parent">
     <img align="center"
        src="https://mybinder.org/badge_logo.svg"
