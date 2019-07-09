@@ -8,6 +8,8 @@ I highly recomment you the following book:
 
 > James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An introduction to statistical learning (Vol. 112, p. 18). New York: springer.
 
+These are selected topics:
+
 Chapter 01 of the script:
 <a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/blob/master/Chapter_01.ipynb"
    target="_parent">
@@ -22,7 +24,7 @@ Chapter 01 of the script:
        width="109" height="20">
 </a>
 <br>
-
+<br>
 Chapter 02 of the script:
 <a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/blob/master/Chapter_02.ipynb"
    target="_parent">
@@ -37,7 +39,7 @@ Chapter 02 of the script:
        width="109" height="20">
 </a>
 <br>
-
+<br>
 Chapter 03 of the script:
 <a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/blob/master/Chapter_03.ipynb"
    target="_parent">
@@ -52,7 +54,7 @@ Chapter 03 of the script:
        width="109" height="20">
 </a>
 <br>
-
+<br>
 Chapter 04 of the script:
 <a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/blob/master/Chapter_04.ipynb"
    target="_parent">
@@ -67,7 +69,7 @@ Chapter 04 of the script:
        width="109" height="20">
 </a>
 <br>
-
+<br>
 Chapter 05 of the script:
 <a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/blob/master/Chapter_05.ipynb"
    target="_parent">
@@ -82,7 +84,7 @@ Chapter 05 of the script:
        width="109" height="20">
 </a>
 <br>
-
+<br>
 Chapter 06 of the script:
 <a href="https://nbviewer.jupyter.org/github/fbalensiefer/Machine_Learning_R/blob/master/Chapter_06.ipynb"
    target="_parent">
