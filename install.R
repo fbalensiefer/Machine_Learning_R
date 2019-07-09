@@ -1,0 +1,5 @@
+install.packages("MASS")
+install.packages("mvtnorm")
+install.packages("glmnet")
+install.packages("boot")
+install.packages("tree")
