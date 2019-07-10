@@ -98,11 +98,11 @@ for (i in 1:MCN){
 avg_MSE_LDA=mean(MSE[,1])
 avg_MSE_QDA=mean(MSE[,2])
 
-#par(mfrow=c(1,2))
-#plot(MSE[,1], ylab="LDA")
-#abline(h=avg_MSE_LDA, col="red")
-#plot(MSE[,2], ylab="QDA")
-#abline(h=avg_MSE_QDA, col="red")
+par(mfrow=c(1,2))
+plot(MSE[,1], ylab="LDA")
+abline(h=avg_MSE_LDA, col="red")
+plot(MSE[,2], ylab="QDA")
+abline(h=avg_MSE_QDA, col="red")
 
 summary(avg_MSE_LDA-avg_MSE_QDA)
 
@@ -153,10 +153,10 @@ for (i in 1:MCN){
 avg_MSE_LDA=mean(MSE[,1])
 avg_MSE_QDA=mean(MSE[,2])
 
-#par(mfrow=c(1,2))
-#plot(MSE[,1], ylab="LDA")
-#abline(h=avg_MSE_LDA, col="red")
-#plot(MSE[,2], ylab="QDA")
-#abline(h=avg_MSE_QDA, col="red")
+par(mfrow=c(1,2))
+plot(MSE[,1], ylab="LDA")
+abline(h=avg_MSE_LDA, col="red")
+plot(MSE[,2], ylab="QDA")
+abline(h=avg_MSE_QDA, col="red")
 
 summary(avg_MSE_LDA-avg_MSE_QDA)
